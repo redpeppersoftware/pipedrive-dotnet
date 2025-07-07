@@ -1,11 +1,16 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using Microsoft.Extensions.Configuration;
 
 namespace Pipedrive.Tests.Integration
 {
-    public static class Helper
+    public class Helper
     {
+        private static readonly IConfiguration _config = new ConfigurationBuilder()
+            .AddUserSecrets<Helper>()
+            .Build();
+
         public static Uri ApiUrl
         {
             get { return _apiUrl.Value; }
@@ -13,12 +18,12 @@ namespace Pipedrive.Tests.Integration
 
         public static string ApiToken
         {
-            get { return Environment.GetEnvironmentVariable("PIPEDRIVE_APITOKEN"); }
+            get { return _config["PIPEDRIVE_APITOKEN"]; }
         }
 
-        static readonly Lazy<Uri> _apiUrl = new Lazy<Uri>(() =>
+        private static readonly Lazy<Uri> _apiUrl = new (() =>
         {
-            string uri = Environment.GetEnvironmentVariable("PIPEDRIVE_URL");
+            var uri = _config["PIPEDRIVE_URL"];
 
             if (uri != null)
             {

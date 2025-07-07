@@ -19,7 +19,7 @@ namespace Pipedrive.Tests.Integration.Clients
                 Assert.True(dealFields[0].ActiveFlag);
                 Assert.False(dealFields[0].AddVisibleFlag);
                 Assert.True(dealFields[1].ActiveFlag);
-                Assert.False(dealFields[1].AddVisibleFlag);
+                Assert.True(dealFields[1].AddVisibleFlag);
             }
         }
 
