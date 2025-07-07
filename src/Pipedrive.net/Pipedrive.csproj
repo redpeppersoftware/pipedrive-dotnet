@@ -3,8 +3,8 @@
     <AssemblyName>Pipedrive.net</AssemblyName>
     <Title>Pipedrive.net</Title>
     <Description>Pipedrive.net is an async .NET Standard client for pipedrive.com</Description>
-    <VersionPrefix>0.5.20</VersionPrefix>
-    <Version>0.5.20</Version>
+    <VersionPrefix>0.6.0</VersionPrefix>
+    <Version>0.6.0</Version>
     <Authors>David Rouyer</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
 
